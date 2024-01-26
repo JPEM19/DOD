@@ -7,4 +7,6 @@ import java.util.List;
 public interface OutageMasterService {
     OutageMasterDTO createOutageMaster(OutageMasterDTO outageMasterDTO);
     List<OutageMasterDTO> getAllOutageMaster();
+    OutageMasterDTO getById(long id);
+    void deleteById(long id);
 }

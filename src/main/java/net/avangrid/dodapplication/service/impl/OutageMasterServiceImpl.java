@@ -1,6 +1,7 @@
 package net.avangrid.dodapplication.service.impl;
 
 import net.avangrid.dodapplication.entity.OutageMaster;
+import net.avangrid.dodapplication.exception.ResourceNotFoundException;
 import net.avangrid.dodapplication.payload.OutageMasterDTO;
 import net.avangrid.dodapplication.repository.OutageMasterRepository;
 import net.avangrid.dodapplication.service.OutageMasterService;
@@ -29,6 +30,18 @@ public class OutageMasterServiceImpl implements OutageMasterService {
     public List<OutageMasterDTO> getAllOutageMaster() {
         List<OutageMaster> outageMasterList = outageMasterRepository.findAll();
         return outageMasterList.stream().map(this::mapToDTO).collect(Collectors.toList());
+    }
+
+    @Override
+    public OutageMasterDTO getById(long id) {
+        OutageMaster outageMaster = outageMasterRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Outage", "id", Long.toString(id)));
+        return mapToDTO(outageMaster);
+    }
+
+    @Override
+    public void deleteById(long id) {
+        OutageMaster outageMaster = outageMasterRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Outage", "id", Long.toString(id)));
+        outageMasterRepository.delete(outageMaster);
     }
 
     private OutageMasterDTO mapToDTO(OutageMaster outageMaster){

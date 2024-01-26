@@ -28,4 +28,15 @@ public class DodController {
         return new ResponseEntity<>(outageMasterService.getAllOutageMaster(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public  ResponseEntity<OutageMasterDTO> getById(@PathVariable long id){
+        return new ResponseEntity<>(outageMasterService.getById(id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable long id){
+        outageMasterService.deleteById(id);
+        return new ResponseEntity<>("Outage reported successfully deleted", HttpStatus.OK);
+    }
+
 }
