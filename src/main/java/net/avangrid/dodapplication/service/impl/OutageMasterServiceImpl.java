@@ -47,12 +47,12 @@ public class OutageMasterServiceImpl implements OutageMasterService {
     private OutageMasterDTO mapToDTO(OutageMaster outageMaster){
         OutageMasterDTO outageMasterDTO = new OutageMasterDTO();
 
-        outageMasterDTO.setId(outageMaster.getId());
+        outageMasterDTO.setId(outageMaster.getIdOutage());
 
         outageMasterDTO.setDateTimeOff(outageMaster.getDateTimeOff());
         outageMasterDTO.setDateModified(outageMaster.getDateModified());
 
-        outageMasterDTO.setServerCentre(outageMaster.getServerCentre());
+        //outageMasterDTO.setServerCentre(outageMaster.getServerCentre());
         outageMasterDTO.setTown(outageMaster.getTown());
         outageMasterDTO.setStreet(outageMaster.getStreet());
         outageMasterDTO.setPole(outageMaster.getPole());
@@ -84,7 +84,7 @@ public class OutageMasterServiceImpl implements OutageMasterService {
         outageMaster.setCdePurposeOutage(outageMasterDTO.getCdePurposeOutage());
         outageMaster.setCdeWeatherConditions(outageMasterDTO.getCdeWeatherConditions());
 
-        outageMaster.setServerCentre(outageMasterDTO.getServerCentre());
+        //outageMaster.setServerCentre(outageMasterDTO.getServerCentre());
         outageMaster.setTown(outageMasterDTO.getTown());
         outageMaster.setStreet(outageMasterDTO.getStreet());
         outageMaster.setPole(outageMasterDTO.getPole());

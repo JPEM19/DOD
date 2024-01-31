@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -16,7 +18,7 @@ public class OutageMaster {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long idOutage;
 
     // Outage Date and Time
 
@@ -39,16 +41,17 @@ public class OutageMaster {
 
     // Damage Location
 
-    @Column(name = "CDE_SERV_CTR", nullable = false)
-    private String serverCentre;
+    //@ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "CDE_SERV_CTR_ID", nullable = false)
+    //private ValidCdeServCtr validCdeServCtr;
 
-    @Column(name = "CMP_TOWN", nullable = false)
+    @Column(name = "CMP_TOWN")
     private String town;
 
-    @Column(name = "CMP_STREET", nullable = false)
+    @Column(name = "CMP_STREET")
     private String street;
 
-    @Column(name = "CMP_POLE", nullable = false)
+    @Column(name = "CMP_POLE")
     private Integer pole;
 
     @Column(name = "ALT")
